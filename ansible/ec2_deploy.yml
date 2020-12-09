@@ -5,7 +5,7 @@
   tasks:
     - name: Launch EC2 instance
       ec2:
-        instance_type: t2.micro
+        instance_type: t2.small
         image: ami-00ddb0e5626798373
         region: us-east-1
         key_name: test
