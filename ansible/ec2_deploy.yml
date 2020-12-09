@@ -24,7 +24,7 @@
       with_items: '{{ec2.instances}}'
 
     - name: Wait for SSH connection
-      wait_for: host={{ item.public_dns_name }} port=22 delay=30 timeout=300 state=started
+      wait_for: host={{ item.public_dns_name }} port=22 delay=30 timeout=600 state=started
       with_items: '{{ec2.instances}}'
 
 - name: Configure EC2
@@ -52,7 +52,7 @@
       become: yes
     - name: Run Docker with eshop
       shell: docker run -p 80:3000 myeshop
-      async: 45
+      async: 90
       poll: 0
       become: yes
     - wait_for:
